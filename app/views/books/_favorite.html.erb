@@ -1,0 +1,9 @@
+<% if book.favorited_by?(current_user) %>
+  <%= link_to book_favorites_path(book), method: :delete do %>
+    <p class="font-red">♥<%= book.favorites.count %></p>
+  <% end %>
+<% else %>
+  <%= link_to book_favorites_path(book), method: :post do %>
+    <p class=""font-blew>♥<%= book.favorites.count %></p>
+  <% end %>
+<% end %>
