@@ -4,6 +4,6 @@
   <% end %>
 <% else %>
   <%= link_to book_favorites_path(book), method: :post do %>
-    <p class=""font-blew>♥<%= book.favorites.count %></p>
+    <p class="font-blew">♥<%= book.favorites.count %></p>
   <% end %>
 <% end %>
