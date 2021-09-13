@@ -19,6 +19,7 @@
         <% if request.fullpath == books_path %>
           <td><%= render 'favorite', book: book %></td>
           <td><%= "#{book.book_comments.count} コメント" %></td>
+        <% elsif request.fullpath == search_path %>
         <% else %>
           <td><%= "#{book.book_comments.count} コメント" %></td>
         <% end %>
