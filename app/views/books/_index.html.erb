@@ -17,7 +17,7 @@
         <td><%= link_to book.title, book_path(book), class: "book_#{book.id}" %></td>
         <td><%= book.body %></td>
         <% if request.fullpath == books_path %>
-          <td><%= render 'favorite', book: book %></td>
+          <td id="favorite_buttons_<%= book.id %>"><%= render 'favorites/favorite', book: book %></td>
           <td><%= "#{book.book_comments.count} コメント" %></td>
         <% elsif request.fullpath == user_path(book.user_id) %>
           <td><%= "#{book.book_comments.count} コメント" %></td>
