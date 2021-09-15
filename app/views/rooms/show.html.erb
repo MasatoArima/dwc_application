@@ -1,0 +1,18 @@
+<% @entries.each do |e| %>
+  <div class="user-name">
+    <h3>
+      <strong>
+        <% if e.user != current_user %>
+          <%= e.user.name %>さんとのチャット
+          <% end %>
+      </strong>
+    </h3>
+  </div>
+<% end %>
+<hr>
+<div class="chats">
+  <div class="chat">
+    <div id="message_buttons"><%= render 'rooms/message_form', messages: @messages, message: @message, room: @room%></div>
+  </div>
+</div>
+

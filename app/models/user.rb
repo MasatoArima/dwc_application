@@ -41,6 +41,8 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   # 与フォロー関係を通じて参照→follower_idをフォローしている人
 
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
   attachment :profile_image, destroy: false
 
   validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true

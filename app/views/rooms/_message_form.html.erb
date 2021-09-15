@@ -1,0 +1,11 @@
+<div>
+  <% if messages.present? %>
+    <% messages.each do |m| %>
+      <div><%= m.content %></div>
+    <% end %>
+  <% end %>
+  <%= form_with model: message, local: true do |f| %>
+    <%= f.text_field :content %>
+        <%= f.hidden_field :room_id, value: room.id %>
+  <% end %>
+</div>
