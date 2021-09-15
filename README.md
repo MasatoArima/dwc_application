@@ -8,3 +8,5 @@
 応用課題6.課題3で実装した機能の非同期通信化 : commit cc412123b53dd71a7dee19e3b221305b061fc7f6
 
 課題 7a : commit 84d47afd6ca2f1ca5108898cb88e42903cf0fa6a
+
+課題 8a : commit affc23d1c5eab4e6e18fed3ec9bf8d3750d37031
