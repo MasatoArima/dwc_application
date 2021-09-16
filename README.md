@@ -16,3 +16,5 @@
 課題 7b & 8b : commit 1fef08b64709de238137c232d4f3ba770421e6a8　(8b修正はcommit c952ce05cd320691945a1a21a0bba5174c0b7f60)
 
 課題 9b : commit c952ce05cd320691945a1a21a0bba5174c0b7f60
+
+課題 7c : commit c902e7bfb7ca4d3c4899a8ed237bc98efec529f8
