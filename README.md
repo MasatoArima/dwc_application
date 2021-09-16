@@ -12,3 +12,5 @@
 課題 8a : commit affc23d1c5eab4e6e18fed3ec9bf8d3750d37031
 
 課題 9a : commit 7e728f00909ceca02a0661c5947a371570153a07
+
+課題 7b & 8b : commit 1fef08b64709de238137c232d4f3ba770421e6a8
