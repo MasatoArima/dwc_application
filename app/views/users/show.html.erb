@@ -82,6 +82,26 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
         <canvas id="myChart"></canvas>
       </div>
+      <div>
+        <table>
+          <tr>
+            <% if user_signed_in? %>
+              <%= form_with model: @book, url: search_users_path, method: :get, remote: true do |f| %>
+              <th>
+                <%= f.date_field :created_at, class: 'form-control' %>
+              </th>
+              <th>
+                <%= f.submit "検索" %>
+              </th>
+              <% end %>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+      <div id="numberofposts_buttons"><%= render 'users/numberofposts', books: @books, book_date: @book_date %></div>
     </div>
   </div>
 </div>
+
+
+

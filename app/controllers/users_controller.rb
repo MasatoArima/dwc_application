@@ -62,7 +62,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @book_date = Book.new(book_date_params)
+    @user = User.find(params[:id])
+    @books = @user.books
+  end
+
   private
+
+  def book_date_params
+    params.require(:book).permit(:created_at)
+  end
+
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end

@@ -1,0 +1,18 @@
+
+<% book_number = 0 %>
+<% @books.each do |book| %>
+  <% if (book.created_at.strftime("%Y-%m-%d")) == (@book_date.created_at.strftime("%Y-%m-%d")) %>
+    <% book_number += 1 %>
+  <% else %>
+  <% end %>
+<% end %>
+
+<h2>検索結果</h2>
+<table>
+  <tr>
+    <th>投稿数</th>
+  </tr>
+  <tr>
+    <td><%= book_number %></td>
+  </tr>
+</table>

@@ -74,3 +74,5 @@ gem 'impressionist', '~>1.6.1'
 gem 'gon', '~> 6.2.0'
 
 gem 'turbolinks', '~> 5'
+
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'

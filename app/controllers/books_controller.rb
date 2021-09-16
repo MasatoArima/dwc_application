@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 
+
   def show
     @book = Book.find(params[:id])
     if @book.user_id != current_user.id
@@ -56,8 +57,6 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
-
-
 
   private
 
