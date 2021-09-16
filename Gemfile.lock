@@ -110,6 +110,10 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.2.1)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -143,6 +147,7 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     msgpack (1.4.2-java)
+    multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     netrc (0.11.0)
@@ -201,6 +206,8 @@ GEM
       mini_magick (~> 4.0)
       refile (~> 0.5)
     regexp_parser (2.1.1)
+    request_store (1.5.0)
+      rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -335,6 +342,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-sass (~> 5.13)
+  gon (~> 6.2.0)
   impressionist (~> 1.6.1)
   jbuilder (~> 2.5)
   jquery-rails
