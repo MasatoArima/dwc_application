@@ -20,5 +20,10 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:create]
   resources :rooms, only: [:create,:show]
-  resources :groups
+  resources :groups do
+    collection do
+      get '/:id/add_user', to: 'groups#add_user', as: 'add_user'
+      get '/:id/destroy_user', to: 'groups#destroy_user', as: 'destroy_user'
+    end
+  end
 end

@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @user = User.all
     @book = Book.new
   end
 
@@ -18,7 +19,8 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.owner_id = current_user
+    @group.users << current_user
+    @group.owner_id = current_user.id
     if @group.save
       redirect_to groups_path
     else
@@ -37,6 +39,20 @@ class GroupsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def add_user
+    @group = Group.find(params[:id])
+    @group.users << current_user
+    redirect_to group_path
+  end
+
+  def destroy_user
+    @group = Group.find(params[:id])
+    @user = current_user
+    @groupuser = GroupUser.find_by(user_id: @user.id, group_id: @group.id)
+    @groupuser.destroy
+    redirect_to group_path
   end
 
   private
