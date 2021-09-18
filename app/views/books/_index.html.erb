@@ -18,8 +18,22 @@
         <td><%= book.body %></td>
         <td id="favorite_buttons_<%= book.id %>"><%= render 'favorites/favorite', book: book %></td>
         <td><%= "コメント数: #{book.book_comments.count}" %></td>
+        <td>
+          <div>
+            <span id="star-rate-<%= book.id %>"></span>
+            <script>
+              $('#star-rate-<%= book.id %>').raty({
+                size: 36,
+                starOff: "<%= asset_path('star-off.png') %>",
+                starOn: "<%= asset_path('star-on.png') %>",
+                readOnly: true,
+                score: <%= book.rate %>,
+              });
+            </script>
+          </div>
+        </td>
         <% if request.fullpath == books_path %>
-        <td>閲覧数:<%= book.impressions_count %></td>
+        <td>閲覧数:<%= book.impressionist_count %></td>
         <% else %>
         <% end %>
       </tr>

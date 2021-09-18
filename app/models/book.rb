@@ -22,7 +22,7 @@ class Book < ApplicationRecord
     end
   end
 
-  is_impressionable counter_cache: true
+  is_impressionable
 
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
   scope :created_one_day_ago, -> { where(created_at: 1.day.ago.all_day) }

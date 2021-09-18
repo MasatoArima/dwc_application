@@ -20,11 +20,25 @@
           <td><%= @book.body %></td>
           <td id="favorite_buttons_<%= @book.id %>"><%= render 'favorites/favorite', book: @book %></td>
           <td id="comment_count"><%= render 'book_comment', book: @book %></td>
+          <td>
+            <div>
+            <span id="star-rate-<%= @book.id %>"></span>
+            <script>
+              $('#star-rate-<%= @book.id %>').raty({
+                size: 36,
+                starOff: "<%= asset_path('star-off.png') %>",
+                starOn: "<%= asset_path('star-on.png') %>",
+                readOnly: true,
+                score: <%= @book.rate %>,
+              });
+            </script>
+          </div>
+          </td>
           <% if current_user.id == @book.user_id %>
           <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
           <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
           <% else %>
-          <td>閲覧数:<%= @book.impressions_count %></td>
+          <td>閲覧数:<%= @book.impressionist_count %></td>
           <% end %>
         </tr>
       </table>
