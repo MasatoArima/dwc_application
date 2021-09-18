@@ -55,6 +55,20 @@ class GroupsController < ApplicationController
     redirect_to group_path
   end
 
+  def new_mail
+    @group = Group.find(params[:id])
+  end
+
+  def send_mail
+    @group = Group.find(params[:id])
+    group_users = @group.users
+    @mail_title = params[:mail_title]
+    @mail_content = params[:mail_content]
+    group_users.each do |user|
+      ContactMailer.send_mail(@mail_title, @mail_content,user).deliver
+    end
+  end
+
   private
 
   def set_edit_group

@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     collection do
       get '/:id/add_user', to: 'groups#add_user', as: 'add_user'
       get '/:id/destroy_user', to: 'groups#destroy_user', as: 'destroy_user'
-    end
+      get "/:id/join" , to: "groups#join", as: 'join'
+      get "/:id/new_mail" , to: "groups#new_mail", as: 'new_mail'
+      get "/:id/send_mail" , to: "groups#send_mail", as: 'send_mail'
+      end
   end
 end
