@@ -29,6 +29,6 @@
 
 課題 7d : commit 441f718dd2217e6fadc6ed8248411959ce622666
 
-課題 8d :
+課題 8d : commit d1b2858e06dc7ef8aba930dd93c583b0c9ad7e50
 
 課題 9d :
