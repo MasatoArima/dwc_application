@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_203657) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.string "category"
     t.integer "user_id"
     t.float "rate"
     t.datetime "created_at", null: false
