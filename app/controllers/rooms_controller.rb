@@ -20,6 +20,8 @@ class RoomsController < ApplicationController
     end
   end
 
+  private
+
   def ensure_correct_user
     @user = User.find(params[:id])
     unless current_user.following?(@user) && @user.following?(current_user)
