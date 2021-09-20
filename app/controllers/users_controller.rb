@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user, only: [:update]
+  before_action :ensure_correct_user, only: [:update, :edit]
 
   def show
     @user = User.find(params[:id])
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     gon.post_list.push(@today_book.count)
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
-    
+
     @book = Book.new
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
