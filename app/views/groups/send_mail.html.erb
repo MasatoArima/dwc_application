@@ -5,10 +5,10 @@
       <div>
       <div>内容は以下の通りです。</div>
         <div>
-          [タイトル]<p> <%= @mail_title %></p>
+          [タイトル]<p><strong><%= @mail_title %></strong></p>
         </div>
         <div>
-          [本文]<p> <%= safe_join(@mail_content.split("\n"),tag(:br)) %></p>
+          [本文]<p><strong> <%= safe_join(@mail_content.split("\n"),tag(:br)) %></strong></p>
         </div>
       </div>
     </div>

@@ -27,15 +27,27 @@
         <td>
           <div>
             <span id="star-rate-<%= book.id %>"></span>
-            <script>
-              $('#star-rate-<%= book.id %>').raty({
-                size: 36,
-                starOff: "<%= asset_path('star-off.png') %>",
-                starOn: "<%= asset_path('star-on.png') %>",
-                readOnly: true,
-                score: <%= book.rate %>,
-              });
-            </script>
+            <% if book.rate == nil %>
+              <script>
+                $('#star-rate-<%= book.id %>').raty({
+                  size: 36,
+                  starOff: "<%= asset_path('star-off.png') %>",
+                  starOn: "<%= asset_path('star-on.png') %>",
+                  readOnly: true,
+                  score: 0,
+                });
+              </script>
+            <% else %>
+              <script>
+                $('#star-rate-<%= book.id %>').raty({
+                  size: 36,
+                  starOff: "<%= asset_path('star-off.png') %>",
+                  starOn: "<%= asset_path('star-on.png') %>",
+                  readOnly: true,
+                  score: <%= book.rate %>,
+                });
+              </script>
+            <% end %>
           </div>
         </td>
         <% if request.fullpath == books_path %>

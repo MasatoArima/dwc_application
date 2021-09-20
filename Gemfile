@@ -76,3 +76,5 @@ gem 'gon', '~> 6.2.0'
 gem 'turbolinks', '~> 5'
 
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+
+gem 'dotenv-rails'
