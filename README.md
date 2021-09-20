@@ -33,4 +33,4 @@
 
 課題 9d : commit e6a3ec1263b29564518de2c9208a7c2be1a24937
 
-ｒ
+test
