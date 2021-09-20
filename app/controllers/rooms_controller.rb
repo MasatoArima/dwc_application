@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:show]
 
   def create
     @room = Room.create
@@ -16,6 +17,13 @@ class RoomsController < ApplicationController
       @entries = @room.entries
     else
       redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless current_user.following?(@user) && @user.following?(current_user)
+      redirect_to user_path(current_user)
     end
   end
 end
