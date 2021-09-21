@@ -9,7 +9,8 @@
   </div>
   <div class="form-group">
     <%= f.label :category %>
-    <%= f.text_field :category, class: 'form-control book_body' %>
+    <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids',\
+        placeholder: "複数設定可 ex)test,sample,・・・" %>
   </div>
 
   <div class="form-group row" id="star">

@@ -32,22 +32,21 @@ class BooksController < ApplicationController
   def index
     to  = Time.current.at_end_of_day
     from  = (to - 6.day).at_beginning_of_day
-    @books = Book.search(params[:search])
-    if params[:search] == nil
-      if params[:category] != nil
-        @books = Book.search(params[:category])
-      elsif params[:option] == "B"
-        @books = Book.order('created_at DESC')
-      elsif params[:option] == "C"
-        @books = Book.order('rate DESC')
-      elsif
-        params[:option] == "A" || params[:option] == nil
-        @books = Book.includes(:favorited_users).
-          sort {|a,b|
-            b.favorited_users.includes(:favorites).where(created_at: from...to).size <=>
-            a.favorited_users.includes(:favorites).where(created_at: from...to).size
-          }
-      end
+    if params[:search].present?
+      search = (params[:search])
+      tag = Tag.find_by(name: search)
+      @books = tag.books.all
+    elsif params[:option] == "B"
+      @books = Book.order('created_at DESC')
+    elsif params[:option] == "C"
+      @books = Book.order('rate DESC')
+    elsif
+      params[:option] == "A" || params[:option] == nil
+      @books = Book.includes(:favorited_users).
+        sort {|a,b|
+          b.favorited_users.includes(:favorites).where(created_at: from...to).size <=>
+          a.favorited_users.includes(:favorites).where(created_at: from...to).size
+        }
     end
     @book = Book.new
   end
@@ -55,7 +54,10 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
+    tag_list = params[:book][:tag_ids].split(',')
+
     if @book.save
+      @book.save_tags(tag_list)
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
       @books = Book.all
@@ -88,7 +90,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :rate, :category)
+    params.require(:book).permit(:title, :body, :rate)
   end
 
 end
