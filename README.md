@@ -31,6 +31,4 @@
 
 課題 8d : commit d1b2858e06dc7ef8aba930dd93c583b0c9ad7e50
 
-課題 9d : commit e6a3ec1263b29564518de2c9208a7c2be1a24937
-
-test
+課題 9d : commit caa98064a2f18b04fd71a21f861176cb72bf21fc
